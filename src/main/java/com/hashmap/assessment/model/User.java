@@ -3,6 +3,8 @@ package com.hashmap.assessment.model;
 import java.util.Date;
 import java.util.UUID;
 
+import static java.lang.Math.abs;
+
 public class User {
     private char[] empName = new char[50];
     private UUID uuid;
@@ -17,11 +19,16 @@ public class User {
         this.DOJ = DOJ;
         this.empRole = empRole;
         this.uuid = UUID.randomUUID();
-        empType = getEmpType(DOJ);
+        empType = calcEmpType(DOJ);
     }
 
-    public EmpType getEmpType(Date DOJ){
+    public EmpType calcEmpType(Date DOJ){
         EmpType empType = EmpType.PROBATION;
+        Date today = new Date();
+        if(today.getYear() > DOJ.getYear() &&  abs(today.getMonth() - DOJ.getMonth()) >= 6) {
+            System.out.println(today.getMonth());
+            empType = EmpType.PERMANENT;
+        }
         return empType;
     }
 }
