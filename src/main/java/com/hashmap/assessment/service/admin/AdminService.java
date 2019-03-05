@@ -1,4 +1,4 @@
-package com.hashmap.assessment.service;
+package com.hashmap.assessment.service.admin;
 
 import com.hashmap.assessment.model.User;
 

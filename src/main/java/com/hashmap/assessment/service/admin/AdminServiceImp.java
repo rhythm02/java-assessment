@@ -1,18 +1,17 @@
-package com.hashmap.assessment.service;
+package com.hashmap.assessment.service.admin;
 
 import com.hashmap.assessment.model.EmpList;
 import com.hashmap.assessment.model.HolidayList;
 import com.hashmap.assessment.model.User;
+import com.hashmap.assessment.service.admin.AdminService;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class AdminServiceImp implements AdminService{
+public class AdminServiceImp implements AdminService {
     private EmpList empList;
     private HolidayList holidayList;
 
-    AdminServiceImp(EmpList empList, HolidayList holidayList){
+    public AdminServiceImp(EmpList empList, HolidayList holidayList){
         this.empList = empList;
         this.holidayList = holidayList;
     }

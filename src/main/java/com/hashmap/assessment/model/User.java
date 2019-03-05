@@ -1,10 +1,15 @@
 package com.hashmap.assessment.model;
 
+import com.hashmap.assessment.utility.FindDays;
+import lombok.Getter;
+
 import java.util.Date;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.Math.abs;
 
+@Getter
 public class User {
     private char[] empName = new char[50];
     private UUID uuid;
@@ -12,6 +17,7 @@ public class User {
     private Date DOJ;
     private EmpRole empRole;
     private EmpType empType;
+    private Leaves leaves;
 
     public User(String empName, String email, Date DOJ, EmpRole empRole){
         this.empName = empName.toCharArray();
@@ -20,15 +26,16 @@ public class User {
         this.empRole = empRole;
         this.uuid = UUID.randomUUID();
         empType = calcEmpType(DOJ);
+        leaves =new Leaves();
     }
 
-    public EmpType calcEmpType(Date DOJ){
+     private EmpType calcEmpType(Date DOJ){
         EmpType empType = EmpType.PROBATION;
         Date today = new Date();
-        if(today.getYear() > DOJ.getYear() &&  abs(today.getMonth() - DOJ.getMonth()) >= 6) {
-            System.out.println(today.getMonth());
-            empType = EmpType.PERMANENT;
-        }
+         long noOfDays = FindDays.calcNoOfDays(DOJ, today);
+         if(noOfDays > 180 && DOJ.getYear() <= today.getYear()) {
+             empType = EmpType.PERMANENT;
+         }
         return empType;
     }
 }
