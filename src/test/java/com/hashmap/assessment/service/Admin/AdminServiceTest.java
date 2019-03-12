@@ -1,6 +1,7 @@
-package com.hashmap.assessment.service;
+package com.hashmap.assessment.service.Admin;
 
 import com.hashmap.assessment.model.*;
+import com.hashmap.assessment.service.DatabaseService;
 import com.hashmap.assessment.service.admin.AdminServiceImp;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,10 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class AdminServiceTest {
 
-    DatabaseService databaseService = DatabaseService.getInstance();
     private AdminServiceImp adminServiceImp;
     private Admin admin;
     private Database database = DatabaseService.getInstance().getDatabase();
@@ -39,12 +40,21 @@ public class AdminServiceTest {
 
     @Test
     public void addHolidayTest() {
-        adminServiceImp.addHoliday(new Date("01/26/2019"));
-        adminServiceImp.addHoliday(new Date("03/04/2019"));
-        adminServiceImp.addHoliday(new Date("12/25/2018"));
+        adminServiceImp.addHoliday(new Date("01/26/2019"), "Republic Day");
+        adminServiceImp.addHoliday(new Date("03/04/2019"), "Shivratri");
+        adminServiceImp.addHoliday(new Date("12/25/2018"), "Christmas");
+        adminServiceImp.addHoliday(new Date("03/21/2018"), "Holi");
+        adminServiceImp.addHoliday(new Date("11/10/2018"), "Diwali");
+        adminServiceImp.addHoliday(new Date("10/20/2018"), "Diwali");
+        adminServiceImp.addHoliday(new Date("12/25/2019"), "Christmas");
+/*
+        for (HashMap.Entry entry:database.getHolidayList().entrySet()
+        ) {
+            System.out.println(entry.getKey() + " " +entry.getValue());
+        }*/
 
         Assert.assertNotNull(database.getHolidayList());
-        Assert.assertTrue(database.getHolidayList().contains(new Date("12/25/2018")));
+        Assert.assertTrue(database.getHolidayList().containsKey(new Date("12/25/2018")));
     }
 
     @Test

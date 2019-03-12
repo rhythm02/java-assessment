@@ -3,8 +3,7 @@ package com.hashmap.assessment.service.admin;
 import com.hashmap.assessment.model.Admin;
 import com.hashmap.assessment.service.DatabaseService;
 import com.hashmap.assessment.model.User;
-import com.hashmap.assessment.service.HolidayService.ManageHolidays;
-import com.hashmap.assessment.service.HolidayService.ManageHolidaysImp;
+import com.hashmap.assessment.service.Holiday.ManageHolidaysImp;
 
 import java.util.Date;
 import java.util.UUID;
@@ -28,7 +27,7 @@ public class AdminServiceImp implements AdminService {
     }
 
     @Override
-    public void addHoliday (Date holiday) { new ManageHolidaysImp().addHoliday(admin, holiday); }
+    public void addHoliday (Date holiday, String fest) { new ManageHolidaysImp().addHoliday(admin, holiday, fest); }
 
     @Override
     public void removeHoliday(Date holiday) { new ManageHolidaysImp().removeHoliday(admin, holiday); }
