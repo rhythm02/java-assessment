@@ -1,4 +1,4 @@
-package com.hashmap.assessment.Exception;
+package com.hashmap.assessment.exception;
 
 public class EmailException extends RuntimeException {
     private String msg;

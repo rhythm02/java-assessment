@@ -1,6 +1,4 @@
-package com.hashmap.assessment.Exception;
-
-import com.hashmap.assessment.utility.ValidateEmail;
+package com.hashmap.assessment.exception;
 
 public class NameException extends RuntimeException {
     private String msg;

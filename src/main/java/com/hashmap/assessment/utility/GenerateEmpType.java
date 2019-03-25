@@ -1,6 +1,6 @@
 package com.hashmap.assessment.utility;
 
-import com.hashmap.assessment.model.EmpType;
+import com.hashmap.assessment.model.employee.EmpType;
 
 import java.util.Date;
 

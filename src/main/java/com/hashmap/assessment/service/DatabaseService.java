@@ -1,11 +1,7 @@
 package com.hashmap.assessment.service;
 
 import com.hashmap.assessment.model.Database;
-import com.hashmap.assessment.model.User;
 import lombok.Getter;
-
-import java.util.Date;
-import java.util.List;
 
 @Getter
 public class DatabaseService {

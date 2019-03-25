@@ -1,7 +1,5 @@
 package com.hashmap.assessment.utility;
 
-import com.hashmap.assessment.model.EmpType;
-
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
